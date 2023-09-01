@@ -1,0 +1,60 @@
+Task – 1: Load the data
+Read the patients data using 'lung_cancer_examples.csv' through pandas library and return the 
+import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
+
+def read_csv():
+    # Method to read the CSV file "lung_cancer_examples.csv" using pandas.
+    df = pd.read_csv('lung_cancer_examples.csv')
+    return df
+
+
+Task – 2: Find the Duplicate Values
+Here, We need to check for duplicate values in a dataset 'lung_cancer_examples'.
+Finally, the counts of duplicated values are returned as a integer(numpy.int). This information can be useful in identifying duplicate data and deciding on appropriate strategies to deal with them, such as imputation or deletion.
+
+def check_duplicates():
+    df = read_csv()
+    # Method to check for duplicate rows in the DataFrame.
+    # Returns: The number of duplicated rows found in the DataFrame.
+    
+    num_duplicates = df.duplicated().sum()
+    return num_duplicates
+    return df
+
+Task – 3: Find the null values
+The function check_null_values() , calculates the sum of null (missing) values for each column in the DataFrame.
+
+def check_null_values():
+    df = read_csv()
+    # Method to check for null (missing) values in the DataFrame.
+    # Returns: A pandas Series indicating the count of null values for each column in the DataFrame.
+    null_counts = df.isnull().sum()
+    return null_counts
+    return df
+
+
+TASK – 4: Renaming the columns
+The function renames specific columns ('Alkhol': 'Alcohol''), and returns the modified dataset.
+
+def rename_column():
+    # do not edit the predefined function name
+    df = read_csv()
+    # Rename columns 'Alkhol' to 'Alcohol'.
+    df.rename(columns={'Alkhol': 'Alcohol'}, inplace=True)
+    return df
+
+
+Task – 5: Check the values
+The check_smoke_value() function is designed to analyze a dataset containing information about smoking habits, and it returns the count of each unique value present in the 'Smokes' column. 
+def check_smoke_value():
+    # do not edit the predefined function name
+    data = rename_column()
+
+    # Count the occurrences of each unique value in the 'Smokes' column
+    smoke_counts = data['Smokes'].value_counts()
+    return smoke_counts
+
+    # Return the counts of each unique smoking habit value
+    return data
